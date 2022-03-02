@@ -14,7 +14,8 @@ export class Post {
 
   @Column()
   creator: string;
-
+  @Column()
+  creatorName: string;
   @Column()
   imageUrl: string;
 

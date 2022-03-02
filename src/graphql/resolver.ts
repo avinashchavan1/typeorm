@@ -108,14 +108,17 @@ module.exports = {
       // Add the logic to check the data validation
       const posts = getRepository(Post);
       const post = new Post();
+
       post.title = postData.title;
       post.content = postData.content;
       post.imageUrl = postData.imageUrl;
       post.creator = userId;
+      // post.creatorName = "Avinash Chavan";
       post.createdAt = new Date().toISOString();
       post.updatedAt = new Date().toISOString();
       const userRepository = getRepository(User);
       const user = await userRepository.findOne({ id: userId });
+      post.creatorName = user.name;
       user.posts = [...user.posts, post];
       await posts.save(post);
       await userRepository.save(user);
@@ -127,7 +130,11 @@ module.exports = {
       const postRepository = getRepository(Post);
       let post = await postRepository.findOne({ id: id });
       if (!post) throw new ValidationError("Post does not exit");
-      if (postData.creator !== userId)
+      const userRepository = getRepository(User);
+      const user = await userRepository.findOne({ id: userId });
+      const uId: number = +post.creator;
+      console.log(user.id, uId);
+      if (user.id !== uId)
         throw new ForbiddenError("User not allowed to modify this post");
       post.title = postData.title;
       post.content = postData.content;

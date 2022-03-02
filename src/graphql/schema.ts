@@ -12,6 +12,7 @@ module.exports = gql`
     content: String!
     imageUrl: String!
     creator: String!
+    creatorName: String!
     createdAt: String!
     updatedAt: String!
   }
