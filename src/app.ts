@@ -5,12 +5,11 @@ import { ApolloServer, AuthenticationError, gql } from "apollo-server";
 const auth = require("./util/auth");
 const jwt = require("jsonwebtoken");
 
-import resolvers = require("./graphql/resolver");
-const typeDefs = require("./graphql/schema");
-
+// import resolvers = require("./graphql/resolver");
+// const typeDefs = require("./graphql/schema");
+const schema = require("./graphql/schema");
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema,
   context: auth,
 });
 
