@@ -11,3 +11,19 @@ Database name: sql11477400
 Database user: sql11477400
 Database password: HNA1c5PbcE
 Port number: 3306
+
+
+
+Hi
+
+Your account number is: 625588
+
+Your new database is now ready to use.
+
+To connect to your database use these details
+
+Server: sql6.freemysqlhosting.net
+Name: sql6498877
+Username: sql6498877
+Password: WTacKsPL78
+Port number: 3306
