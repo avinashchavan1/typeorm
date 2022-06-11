@@ -4,6 +4,8 @@ import { User } from "./entity/User";
 import { ApolloServer } from "apollo-server-express";
 import express from "express";
 import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
+var cors = require("cors");
+
 import http from "http";
 
 const auth = require("./util/auth");
@@ -21,6 +23,7 @@ const schema = require("./graphql/schema");
 
 async function startApolloServer() {
   const app = express();
+  app.use(cors());
   const httpServer = http.createServer(app);
   const server = new ApolloServer({
     schema,
