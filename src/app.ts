@@ -36,6 +36,9 @@ async function startApolloServer() {
       // });
       await server.start();
       server.applyMiddleware({ app });
+      app.use("*", function (req, res) {
+        res.send("what???").status(404);
+      });
       await new Promise<void>((resolve) =>
         httpServer.listen({ port: 4000 }, resolve)
       );
