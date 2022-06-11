@@ -30,7 +30,7 @@
     "validator": "^13.7.0"
   },
   "scripts": {
-    "start": "nodemon --exec npx ts-node src/app.ts",
+    "start": "npx ts-node src/app.ts",
     "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
   }
 }
